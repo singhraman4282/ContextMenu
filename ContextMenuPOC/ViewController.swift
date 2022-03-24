@@ -9,9 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  @IBOutlet var someImageView: UIImageView!
+  @IBOutlet var someOtherButton: UIButton!
   @IBOutlet var someButton: UIButton!
-  @IBOutlet var someLabel: UILabel!
   
   let inspect = Interaction(title: "Inspect", imageName: "arrow.up.square") {
     print("Will inspect")
@@ -21,28 +20,29 @@ class ViewController: UIViewController {
     print("Will Rate")
   }
   
-  lazy private var interactionHandler: TDInteractionHandler = {
-    let interactions: [Interaction] = [inspect, rate]
-    return TDInteractionHandler(interactions: interactions, title: "Kewl Menu")
+  let delete = Interaction(title: "Delete", imageName: "trash.fill", type: .destructive) {
+    print("will delete")
+  }
+  
+  let upload = Interaction(title: "Upload", imageName: "paperplane.fill", type: .disabled) {
+    print("will upload")
+  }
+  
+  lazy private var interactionHandler: InteractionHandler = {
+    let interactions: [Interaction] = [inspect, rate, upload, delete]
+    return DefaultInteractionHandler(interactions: interactions, title: "Kewl Menu")
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-      // TODO: Play with destructive and shit for UIActionAttributes
-//    if #available(iOS 13.0, *) {
-//      interactionHandler.addTouchInteractions(to: someButton)
-//    }
+    if #available(iOS 13.0, *) {
+      someButton.addInteractionHandlerWithiOS13(interactionHandler)
+    } else {
+      someButton.addInteractionHandlerWithSheetAsFallback(interactionHandler, parentViewController: self)
+    }
     
-    interactionHandler.addTouchInteractions(to: someButton, in: self)
-    
-    
-    
-//    let alert = UIAlertController(title: "asfa", message: "afa", preferredStyle: .actionSheet)
-    
-   
+    someOtherButton.addInteractionHandlerWithiOS12(interactionHandler, parentViewController: self)
   }
 
-
 }
-
