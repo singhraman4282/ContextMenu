@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     print("Will Rate")
   }
   
-  @available(iOS 13.0, *)
   lazy private var interactionHandler: TDInteractionHandler = {
     let interactions: [Interaction] = [inspect, rate]
     return TDInteractionHandler(interactions: interactions, title: "Kewl Menu")
@@ -31,21 +30,17 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
       // TODO: Play with destructive and shit for UIActionAttributes
-    if #available(iOS 13.0, *) {
-      someLabel.isUserInteractionEnabled = true
-      someImageView.isUserInteractionEnabled = true
-      interactionHandler.addInteractions(to: someButton)
-      interactionHandler.addInteractions(to: someImageView)
-      interactionHandler.addInteractions(to: someLabel)
-    }
+//    if #available(iOS 13.0, *) {
+//      interactionHandler.addTouchInteractions(to: someButton)
+//    }
+    
+    interactionHandler.addTouchInteractions(to: someButton, in: self)
     
     
     
+//    let alert = UIAlertController(title: "asfa", message: "afa", preferredStyle: .actionSheet)
     
-    // Do any additional setup after loading the view.
-//    let interaction = UIContextMenuInteraction(delegate: self)
-//    someImageView.isUserInteractionEnabled = true
-//    someImageView.addInteraction(interaction)
+   
   }
 
 
