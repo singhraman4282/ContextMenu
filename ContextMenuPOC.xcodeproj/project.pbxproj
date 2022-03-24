@@ -13,6 +13,7 @@
 		597C0C1A27EBC5A900BEA43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597C0C1827EBC5A900BEA43A /* Main.storyboard */; };
 		597C0C1C27EBC5AA00BEA43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597C0C1B27EBC5AA00BEA43A /* Assets.xcassets */; };
 		597C0C1F27EBC5AA00BEA43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597C0C1D27EBC5AA00BEA43A /* LaunchScreen.storyboard */; };
+		597C0C2727EC1FCE00BEA43A /* KewlFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597C0C2627EC1FCE00BEA43A /* KewlFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		597C0C1B27EBC5AA00BEA43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		597C0C1E27EBC5AA00BEA43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		597C0C2027EBC5AA00BEA43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		597C0C2627EC1FCE00BEA43A /* KewlFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KewlFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				597C0C1227EBC5A900BEA43A /* AppDelegate.swift */,
 				597C0C1427EBC5A900BEA43A /* SceneDelegate.swift */,
 				597C0C1627EBC5A900BEA43A /* ViewController.swift */,
+				597C0C2627EC1FCE00BEA43A /* KewlFile.swift */,
 				597C0C1827EBC5A900BEA43A /* Main.storyboard */,
 				597C0C1B27EBC5AA00BEA43A /* Assets.xcassets */,
 				597C0C1D27EBC5AA00BEA43A /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				597C0C2727EC1FCE00BEA43A /* KewlFile.swift in Sources */,
 				597C0C1727EBC5A900BEA43A /* ViewController.swift in Sources */,
 				597C0C1327EBC5A900BEA43A /* AppDelegate.swift in Sources */,
 				597C0C1527EBC5A900BEA43A /* SceneDelegate.swift in Sources */,
@@ -217,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -297,6 +301,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +330,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
