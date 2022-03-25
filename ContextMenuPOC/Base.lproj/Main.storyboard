@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cPp-R9-pod">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Button In View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContextMenuPOC" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFl-bO-Tu9">
-                                <rect key="frame" x="130" y="400" width="154" height="31"/>
+                                <rect key="frame" x="107" y="400" width="200" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="1wK-O0-TOq"/>
-                                    <constraint firstAttribute="width" constant="154" id="Rb8-L0-voe"/>
+                                    <constraint firstAttribute="width" constant="200" id="Rb8-L0-voe"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Context Menu"/>
+                                <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqY-VS-iI6">
                                 <rect key="frame" x="165.5" y="359" width="83" height="21"/>
@@ -44,13 +45,13 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUU-KY-Ykk">
-                                <rect key="frame" x="134" y="451" width="146" height="31"/>
+                                <rect key="frame" x="107" y="451" width="200" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="ZD9-kV-isO"/>
+                                    <constraint firstAttribute="width" constant="200" id="ZD9-kV-isO"/>
                                     <constraint firstAttribute="height" constant="31" id="fOL-CE-cYk"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Action Sheet"/>
+                                <buttonConfiguration key="configuration" style="plain" title="iOS 12"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -66,12 +67,162 @@
                             <constraint firstItem="zqY-VS-iI6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p5g-u3-rvj"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Button In View" id="3sn-oJ-2vl"/>
                     <connections>
                         <outlet property="someButton" destination="TFl-bO-Tu9" id="oBt-3b-lla"/>
                         <outlet property="someOtherButton" destination="CUU-KY-Ykk" id="ozb-Zr-vsw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-459" y="835"/>
+        </scene>
+        <!--TableView Cell-->
+        <scene sceneID="6aD-ll-g8K">
+            <objects>
+                <tableViewController id="hbM-x0-HfL" customClass="TableViewController" customModule="ContextMenuPOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zRg-pS-elc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="100" id="kkG-c2-wQl" customClass="TableViewCell" customModule="ContextMenuPOC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kkG-c2-wQl" id="787-8Y-ahU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq3-Hv-Pa3">
+                                            <rect key="frame" x="20" y="58" width="374" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="iOS 12"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-XK-Yf9">
+                                            <rect key="frame" x="20" y="11" width="374" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="top" secondItem="Rdg-XK-Yf9" secondAttribute="bottom" constant="10" id="2B3-ZX-77z"/>
+                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="top" secondItem="787-8Y-ahU" secondAttribute="topMargin" id="FbX-ta-47J"/>
+                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="leading" secondItem="787-8Y-ahU" secondAttribute="leadingMargin" id="aww-h1-Q3s"/>
+                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="leading" secondItem="787-8Y-ahU" secondAttribute="leadingMargin" id="ppB-Ic-n7d"/>
+                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="bottom" secondItem="787-8Y-ahU" secondAttribute="bottomMargin" constant="10" id="qjl-y2-T00"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zq3-Hv-Pa3" secondAttribute="trailing" id="rE4-cu-qFF"/>
+                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="trailing" secondItem="787-8Y-ahU" secondAttribute="trailingMargin" id="thp-IO-2ze"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actionSheetButton" destination="zq3-Hv-Pa3" id="d8A-eX-f98"/>
+                                    <outlet property="contextMenuButton" destination="Rdg-XK-Yf9" id="7OK-xM-kEp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hbM-x0-HfL" id="541-mn-a6b"/>
+                            <outlet property="delegate" destination="hbM-x0-HfL" id="dIH-VC-ddT"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="TableView Cell" id="oBt-Ej-LVK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8b-cS-7ZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276.81159420289856" y="833.70535714285711"/>
+        </scene>
+        <!--CollectionView Cell-->
+        <scene sceneID="7gS-jF-W4q">
+            <objects>
+                <collectionViewController id="SCy-O9-kPo" customClass="CollectionViewController" customModule="ContextMenuPOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nT1-Oa-fRh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bUa-DE-Hek">
+                            <size key="itemSize" width="132" height="136"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="uHp-9l-U64" customClass="CollectionViewCell" customModule="ContextMenuPOC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vjx-wl-eRZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="132" height="136"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-NZ-ue5">
+                                            <rect key="frame" x="10" y="10" width="112" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="112" id="NHP-eG-VJI"/>
+                                                <constraint firstAttribute="height" constant="31" id="WoM-vJ-Ega"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                            </buttonConfiguration>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-cp-P2e">
+                                            <rect key="frame" x="10" y="51" width="112" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="PPo-xI-Kyt"/>
+                                                <constraint firstAttribute="width" constant="112" id="fpP-9N-bPa"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="iOS 12">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                            </buttonConfiguration>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mBY-NZ-ue5" firstAttribute="leading" secondItem="vjx-wl-eRZ" secondAttribute="leading" constant="10" id="5nl-Ne-Rk6"/>
+                                        <constraint firstItem="7eu-cp-P2e" firstAttribute="leading" secondItem="vjx-wl-eRZ" secondAttribute="leading" constant="10" id="Jbh-tO-VGA"/>
+                                        <constraint firstItem="mBY-NZ-ue5" firstAttribute="top" secondItem="vjx-wl-eRZ" secondAttribute="top" constant="10" id="cPt-w3-yhe"/>
+                                        <constraint firstItem="7eu-cp-P2e" firstAttribute="top" secondItem="mBY-NZ-ue5" secondAttribute="bottom" constant="10" id="gLZ-l3-Pb7"/>
+                                        <constraint firstAttribute="bottom" secondItem="7eu-cp-P2e" secondAttribute="bottom" constant="10" id="q8b-fH-IA9"/>
+                                        <constraint firstAttribute="trailing" secondItem="mBY-NZ-ue5" secondAttribute="trailing" constant="10" id="stn-vp-VzG"/>
+                                        <constraint firstAttribute="trailing" secondItem="7eu-cp-P2e" secondAttribute="trailing" constant="10" id="tt1-Jl-ex0"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="132" height="136"/>
+                                <connections>
+                                    <outlet property="actionSheetButton" destination="7eu-cp-P2e" id="2g4-IB-Mmd"/>
+                                    <outlet property="contextMenuButton" destination="mBY-NZ-ue5" id="wNM-gR-jve"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="SCy-O9-kPo" id="wsk-BB-5xG"/>
+                            <outlet property="delegate" destination="SCy-O9-kPo" id="cpi-2n-r1J"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="CollectionView Cell" id="e0n-Vc-riJ"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WsV-oF-vvc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="820.98214285714278"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CzZ-QK-eja">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cPp-R9-pod" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r16-ig-cXj">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FG8-qb-zpg"/>
+                        <segue destination="hbM-x0-HfL" kind="relationship" relationship="viewControllers" id="Oay-jZ-f2p"/>
+                        <segue destination="SCy-O9-kPo" kind="relationship" relationship="viewControllers" id="fxH-1e-Swe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSC-od-0XY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="81.696428571428569"/>
         </scene>
@@ -80,6 +231,9 @@
         <image name="star_image" width="48" height="45.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

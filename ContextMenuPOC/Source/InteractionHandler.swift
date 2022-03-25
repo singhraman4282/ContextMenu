@@ -9,9 +9,15 @@ import Foundation
 import UIKit
 
 protocol InteractionHandler {
+  
+    // MARK: Methods to demo iOS 13+
   @available(iOS 13.0, *)
   func addTouchInteractions(to interactable: ControlInteractable)
+    // MARK: Methods to demo iOS 12
   func addTouchInteractions(to interactable: ControlInteractable, in vc: UIViewController)
+  
+    // MARK: Method to use in production
+  func addInteractions(to interactable: ControlInteractable, in vc: UIViewController)
 }
 
 
@@ -25,6 +31,7 @@ class DefaultInteractionHandler: NSObject, InteractionHandler {
     self.title = title
   }
   
+    // MARK: Demo method
   @available(iOS 13.0, *)
   func addTouchInteractions(to interactable: ControlInteractable) {
     if #available(iOS 14.0, *) {
@@ -38,9 +45,26 @@ class DefaultInteractionHandler: NSObject, InteractionHandler {
     }
   }
   
+    // MARK: Demo method
   func addTouchInteractions(to interactable: ControlInteractable, in vc: UIViewController) {
     self.containerVC = vc
     interactable.addTarget(self, action: #selector(showActionSheet))
+  }
+  
+    // MARK: Method to be used in production
+  func addInteractions(to interactable: ControlInteractable, in vc: UIViewController) {
+    if #available(iOS 14.0, *) {
+      interactable.showsMenuAsPrimaryAction = true
+      interactable.menu = UIMenu(
+        title: NSLocalizedString(title, comment: ""),
+        children: interactions.map { $0.toUIAction })
+    } else if #available(iOS 13.0, *) {
+      let interaction = UIContextMenuInteraction(delegate: self)
+      interactable.addInteraction(interaction)
+    } else {
+      self.containerVC = vc
+      interactable.addTarget(self, action: #selector(showActionSheet))
+    }
   }
   
   @objc private func showActionSheet() {
@@ -85,6 +109,7 @@ extension DefaultInteractionHandler: UIContextMenuInteractionDelegate {
 
 }
 
+// MARK: UIButton Extension to be added in production
 extension UIButton {
   
   func addInteractionHandlerWithSheetAsFallback(_ handler: InteractionHandler, parentViewController: UIViewController) {
@@ -106,6 +131,7 @@ extension UIButton {
   
 }
 
+// MARK: UIImage Extension to be added in production
 extension UIImage {
   
   @available(iOS 13.0, *)

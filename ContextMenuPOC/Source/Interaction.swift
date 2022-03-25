@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 struct Interaction {
+  
   enum InteractionType {
     case regular
     case destructive
