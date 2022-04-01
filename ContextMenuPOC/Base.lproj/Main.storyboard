@@ -18,15 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFl-bO-Tu9">
-                                <rect key="frame" x="107" y="400" width="200" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="1wK-O0-TOq"/>
-                                    <constraint firstAttribute="width" constant="200" id="Rb8-L0-voe"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqY-VS-iI6">
                                 <rect key="frame" x="165.5" y="359" width="83" height="21"/>
                                 <constraints>
@@ -44,33 +35,77 @@
                                     <constraint firstAttribute="width" constant="240" id="I05-nZ-j4f"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUU-KY-Ykk">
-                                <rect key="frame" x="107" y="451" width="200" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="ZD9-kV-isO"/>
-                                    <constraint firstAttribute="height" constant="31" id="fOL-CE-cYk"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="iOS 12"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p12-so-yK9">
+                                <rect key="frame" x="20" y="400" width="374" height="93"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hI4-Gb-ZkV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mom-eK-Ux8">
+                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-wq-D2i">
+                                                <rect key="frame" x="330.5" y="0.0" width="43.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DnQ-eb-b49">
+                                        <rect key="frame" x="0.0" y="31" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enx-Rd-iN0">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6z-mC-HJh">
+                                                <rect key="frame" x="330.5" y="0.0" width="43.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Bj-lN-Xab">
+                                        <rect key="frame" x="0.0" y="62" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 14 +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDZ-P0-oIW">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCb-X3-0MV">
+                                                <rect key="frame" x="330.5" y="0.0" width="43.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CUU-KY-Ykk" firstAttribute="top" secondItem="TFl-bO-Tu9" secondAttribute="bottom" constant="20" id="3uf-ni-2gu"/>
                             <constraint firstItem="x6T-BS-Gip" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="4iE-0q-udQ"/>
                             <constraint firstItem="zqY-VS-iI6" firstAttribute="top" secondItem="x6T-BS-Gip" secondAttribute="bottom" constant="59" id="712-5E-XC8"/>
-                            <constraint firstItem="TFl-bO-Tu9" firstAttribute="top" secondItem="zqY-VS-iI6" secondAttribute="bottom" constant="20" id="Jov-yN-xUv"/>
-                            <constraint firstItem="TFl-bO-Tu9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K8a-7e-5t7"/>
+                            <constraint firstItem="p12-so-yK9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Yk6-gq-9M1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p12-so-yK9" secondAttribute="trailing" constant="20" id="fo3-oi-euX"/>
                             <constraint firstItem="x6T-BS-Gip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hDh-EQ-pMB"/>
-                            <constraint firstItem="CUU-KY-Ykk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iNe-5W-C1y"/>
+                            <constraint firstItem="p12-so-yK9" firstAttribute="top" secondItem="zqY-VS-iI6" secondAttribute="bottom" constant="20" id="jkv-fK-Ulj"/>
                             <constraint firstItem="zqY-VS-iI6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p5g-u3-rvj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Button In View" id="3sn-oJ-2vl"/>
                     <connections>
-                        <outlet property="someButton" destination="TFl-bO-Tu9" id="oBt-3b-lla"/>
-                        <outlet property="someOtherButton" destination="CUU-KY-Ykk" id="ozb-Zr-vsw"/>
+                        <outlet property="iOS12Button" destination="9SI-wq-D2i" id="rZD-WQ-m4o"/>
+                        <outlet property="iOS13Button" destination="J6z-mC-HJh" id="TsV-Yk-Hnx"/>
+                        <outlet property="osAgnosticButton" destination="cCb-X3-0MV" id="iJO-UK-UN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,30 +128,71 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zq3-Hv-Pa3">
-                                            <rect key="frame" x="20" y="58" width="374" height="31"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="iOS 12"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdg-XK-Yf9">
-                                            <rect key="frame" x="20" y="11" width="374" height="31"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher"/>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z7r-qB-uef">
+                                            <rect key="frame" x="5" y="5" width="404" height="85"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" spacing="284" translatesAutoresizingMaskIntoConstraints="NO" id="nxx-Xt-S8j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="iOS 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzK-75-GT7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWI-Hw-YUY">
+                                                            <rect key="frame" x="360.5" y="0.0" width="43.5" height="31"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" spacing="284" translatesAutoresizingMaskIntoConstraints="NO" id="D9t-v8-ZTH">
+                                                    <rect key="frame" x="0.0" y="31" width="404" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="iOS 13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dON-AL-o2k">
+                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-vN-C5S">
+                                                            <rect key="frame" x="360.5" y="0.0" width="43.5" height="31"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" spacing="284" translatesAutoresizingMaskIntoConstraints="NO" id="sq4-LM-XEv">
+                                                    <rect key="frame" x="0.0" y="62" width="404" height="23"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="iOS 14 +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F8-ZE-xEe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-xx-Vl5">
+                                                            <rect key="frame" x="360.5" y="0.0" width="43.5" height="23"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="top" secondItem="Rdg-XK-Yf9" secondAttribute="bottom" constant="10" id="2B3-ZX-77z"/>
-                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="top" secondItem="787-8Y-ahU" secondAttribute="topMargin" id="FbX-ta-47J"/>
-                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="leading" secondItem="787-8Y-ahU" secondAttribute="leadingMargin" id="aww-h1-Q3s"/>
-                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="leading" secondItem="787-8Y-ahU" secondAttribute="leadingMargin" id="ppB-Ic-n7d"/>
-                                        <constraint firstItem="zq3-Hv-Pa3" firstAttribute="bottom" secondItem="787-8Y-ahU" secondAttribute="bottomMargin" constant="10" id="qjl-y2-T00"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="zq3-Hv-Pa3" secondAttribute="trailing" id="rE4-cu-qFF"/>
-                                        <constraint firstItem="Rdg-XK-Yf9" firstAttribute="trailing" secondItem="787-8Y-ahU" secondAttribute="trailingMargin" id="thp-IO-2ze"/>
+                                        <constraint firstAttribute="bottom" secondItem="Z7r-qB-uef" secondAttribute="bottom" constant="10" id="2pW-my-dJs"/>
+                                        <constraint firstItem="Z7r-qB-uef" firstAttribute="leading" secondItem="787-8Y-ahU" secondAttribute="leading" constant="5" id="7Eq-Ob-dVF"/>
+                                        <constraint firstAttribute="trailing" secondItem="Z7r-qB-uef" secondAttribute="trailing" constant="5" id="Qob-Uu-VwX"/>
+                                        <constraint firstItem="Z7r-qB-uef" firstAttribute="top" secondItem="787-8Y-ahU" secondAttribute="top" constant="5" id="zbS-oz-wXv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="actionSheetButton" destination="zq3-Hv-Pa3" id="d8A-eX-f98"/>
-                                    <outlet property="contextMenuButton" destination="Rdg-XK-Yf9" id="7OK-xM-kEp"/>
+                                    <outlet property="iOS12Button" destination="rWI-Hw-YUY" id="3cV-fe-LPU"/>
+                                    <outlet property="iOS13Button" destination="hXM-vN-C5S" id="c8e-yv-bz3"/>
+                                    <outlet property="osAgnosticButton" destination="MUD-xx-Vl5" id="TrP-zD-1rJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,45 +229,72 @@
                                     <rect key="frame" x="0.0" y="0.0" width="132" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-NZ-ue5">
-                                            <rect key="frame" x="10" y="10" width="112" height="31"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="112" id="NHP-eG-VJI"/>
-                                                <constraint firstAttribute="height" constant="31" id="WoM-vJ-Ega"/>
-                                            </constraints>
-                                            <color key="tintColor" systemColor="systemPinkColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="iOS 13 and higher">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                            </buttonConfiguration>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-cp-P2e">
-                                            <rect key="frame" x="10" y="51" width="112" height="75"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="PPo-xI-Kyt"/>
-                                                <constraint firstAttribute="width" constant="112" id="fpP-9N-bPa"/>
-                                            </constraints>
-                                            <color key="tintColor" systemColor="systemPinkColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="iOS 12">
-                                                <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                            </buttonConfiguration>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VXd-Uq-xvw">
+                                            <rect key="frame" x="5" y="5" width="122" height="93"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-1J-P9B">
+                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfc-ev-cxP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDZ-ij-5ag">
+                                                            <rect key="frame" x="78.5" y="0.0" width="43.5" height="31"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Odv-kF-GOe">
+                                                    <rect key="frame" x="0.0" y="31" width="122" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6j-V7-W9A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ht-db-DYn">
+                                                            <rect key="frame" x="78.5" y="0.0" width="43.5" height="31"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-yg-bYs">
+                                                    <rect key="frame" x="0.0" y="62" width="122" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 14 +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5h-rj-goe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="31"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-cB-3DP">
+                                                            <rect key="frame" x="78.5" y="0.0" width="43.5" height="31"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system" title=""/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="mBY-NZ-ue5" firstAttribute="leading" secondItem="vjx-wl-eRZ" secondAttribute="leading" constant="10" id="5nl-Ne-Rk6"/>
-                                        <constraint firstItem="7eu-cp-P2e" firstAttribute="leading" secondItem="vjx-wl-eRZ" secondAttribute="leading" constant="10" id="Jbh-tO-VGA"/>
-                                        <constraint firstItem="mBY-NZ-ue5" firstAttribute="top" secondItem="vjx-wl-eRZ" secondAttribute="top" constant="10" id="cPt-w3-yhe"/>
-                                        <constraint firstItem="7eu-cp-P2e" firstAttribute="top" secondItem="mBY-NZ-ue5" secondAttribute="bottom" constant="10" id="gLZ-l3-Pb7"/>
-                                        <constraint firstAttribute="bottom" secondItem="7eu-cp-P2e" secondAttribute="bottom" constant="10" id="q8b-fH-IA9"/>
-                                        <constraint firstAttribute="trailing" secondItem="mBY-NZ-ue5" secondAttribute="trailing" constant="10" id="stn-vp-VzG"/>
-                                        <constraint firstAttribute="trailing" secondItem="7eu-cp-P2e" secondAttribute="trailing" constant="10" id="tt1-Jl-ex0"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VXd-Uq-xvw" secondAttribute="bottom" constant="5" id="NkB-Rp-eoz"/>
+                                        <constraint firstAttribute="trailing" secondItem="VXd-Uq-xvw" secondAttribute="trailing" constant="5" id="dxk-RU-s4r"/>
+                                        <constraint firstItem="VXd-Uq-xvw" firstAttribute="top" secondItem="vjx-wl-eRZ" secondAttribute="top" constant="5" id="mmy-Ay-dnB"/>
+                                        <constraint firstItem="VXd-Uq-xvw" firstAttribute="leading" secondItem="vjx-wl-eRZ" secondAttribute="leading" constant="5" id="u96-0b-z4k"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="132" height="136"/>
                                 <connections>
-                                    <outlet property="actionSheetButton" destination="7eu-cp-P2e" id="2g4-IB-Mmd"/>
-                                    <outlet property="contextMenuButton" destination="mBY-NZ-ue5" id="wNM-gR-jve"/>
+                                    <outlet property="iOS12Button" destination="EDZ-ij-5ag" id="JYt-ch-Dd6"/>
+                                    <outlet property="iOS13Button" destination="8ht-db-DYn" id="Xdh-Vz-jfb"/>
+                                    <outlet property="osAgnosticButton" destination="KmB-cB-3DP" id="tzI-IZ-93B"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -228,12 +331,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="star_image" width="48" height="45.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

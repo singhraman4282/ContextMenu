@@ -8,8 +8,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-  @IBOutlet var contextMenuButton: UIButton!
-  @IBOutlet var actionSheetButton: UIButton!
+  @IBOutlet var osAgnosticButton: UIButton!
+  @IBOutlet var iOS12Button: UIButton!
+  @IBOutlet var iOS13Button: UIButton!
 }
 
 class TableViewController: UITableViewController {
@@ -59,17 +60,16 @@ class TableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
     let model = models[indexPath.row]
+    
+    cell.iOS12Button.addInteractionForiOS12(model.handler, parentViewController: self)
+    
     if #available(iOS 13.0, *) {
-      cell.contextMenuButton
-        .addInteractionHandlerWithiOS13(model.handler)
+      cell.iOS13Button.addInteractionHandlerForiOS13(model.handler, parentViewController: self)
     } else {
-      cell.contextMenuButton
-        .addInteractionHandlerWithSheetAsFallback(
-          model.handler, parentViewController: self)
+      cell.iOS13Button.addInteractionForiOS12(model.handler, parentViewController: self)
     }
     
-    cell.actionSheetButton
-      .addInteractionHandlerWithiOS12(model.handler, parentViewController: self)
+    cell.osAgnosticButton.oneForAllInteraction(model.handler, parentViewController: self)
     
     return cell
   }

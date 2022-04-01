@@ -8,8 +8,9 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-  @IBOutlet var contextMenuButton: UIButton!
-  @IBOutlet var actionSheetButton: UIButton!
+  @IBOutlet var osAgnosticButton: UIButton!
+  @IBOutlet var iOS12Button: UIButton!
+  @IBOutlet var iOS13Button: UIButton!
 }
 
 class CollectionViewController: UICollectionViewController {
@@ -59,20 +60,16 @@ class CollectionViewController: UICollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
     let model = models[indexPath.row]
+
+    cell.iOS12Button.addInteractionForiOS12(model.handler, parentViewController: self)
+    
     if #available(iOS 13.0, *) {
-      cell.contextMenuButton
-        .addInteractionHandlerWithiOS13(model.handler)
+      cell.iOS13Button.addInteractionHandlerForiOS13(model.handler, parentViewController: self)
     } else {
-      cell.contextMenuButton
-        .addInteractionHandlerWithSheetAsFallback(
-          model.handler, parentViewController: self)
+      cell.iOS13Button.addInteractionForiOS12(model.handler, parentViewController: self)
     }
     
-    cell.actionSheetButton
-      .addInteractionHandlerWithiOS12(model.handler, parentViewController: self)
-    
-    cell.contextMenuButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-    cell.actionSheetButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+    cell.osAgnosticButton.oneForAllInteraction(model.handler, parentViewController: self)
     
     return cell
   }

@@ -1,25 +1,28 @@
-//
-//  InteractionHandler.swift
-//  ContextMenuPOC
-//
-//  Created by Raman Singh on 2022-03-23.
-//
+  //
+  //  InteractionHandler.swift
+  //  ContextMenuPOC
+  //
+  //  Created by Raman Singh on 2022-03-23.
+  //
 
 import Foundation
 import UIKit
 
 protocol InteractionHandler {
+  /// `To be used in production.`
+  func showContextMenuOrSheet(for interactable: ControlInteractable, in vc: UIViewController)
   
-    // MARK: Methods to demo iOS 13+
+  /// Demo only. Not to be used in production.
+  func showSheetOnTap(for interactable: ControlInteractable, in vc: UIViewController)
+  
+  /// Demo only. Not to be used in production.
   @available(iOS 13.0, *)
-  func addTouchInteractions(to interactable: ControlInteractable)
-    // MARK: Methods to demo iOS 12
-  func addTouchInteractions(to interactable: ControlInteractable, in vc: UIViewController)
+  func showContextMenuOnLongPressOr3DTouch(for interactable: ControlInteractable)
   
-    // MARK: Method to use in production
-  func addInteractions(to interactable: ControlInteractable, in vc: UIViewController)
+  /// Demo only. Not to be used in production.
+  @available(iOS 14.0, *)
+  func showContextMenuOnTap(for interactable: ControlInteractable)
 }
-
 
 class DefaultInteractionHandler: NSObject, InteractionHandler {
   private let interactions: [Interaction]
@@ -31,47 +34,50 @@ class DefaultInteractionHandler: NSObject, InteractionHandler {
     self.title = title
   }
   
-    // MARK: Demo method
-  @available(iOS 13.0, *)
-  func addTouchInteractions(to interactable: ControlInteractable) {
-    if #available(iOS 14.0, *) {
-      interactable.showsMenuAsPrimaryAction = true
-      interactable.menu = UIMenu(
-        title: NSLocalizedString(title, comment: ""),
-        children: interactions.map { $0.toUIAction })
-    } else {
-      let interaction = UIContextMenuInteraction(delegate: self)
-      interactable.addInteraction(interaction)
-    }
-  }
-  
-    // MARK: Demo method
-  func addTouchInteractions(to interactable: ControlInteractable, in vc: UIViewController) {
+    /// Shows action sheet on tap.
+    /// Demo only. Not to be used in production.
+  func showSheetOnTap(for interactable: ControlInteractable, in vc: UIViewController) {
     self.containerVC = vc
     interactable.addTarget(self, action: #selector(showActionSheet))
   }
   
-    // MARK: Method to be used in production
-  func addInteractions(to interactable: ControlInteractable, in vc: UIViewController) {
+    /// Shows context menu on long press or 3D touch.
+    /// Demo only. Not to be used in production.
+  @available(iOS 13.0, *)
+  func showContextMenuOnLongPressOr3DTouch(for interactable: ControlInteractable) {
+    let interaction = UIContextMenuInteraction(delegate: self)
+    interactable.addInteraction(interaction)
+  }
+  
+    /// Shows context menu on tap.
+    /// Demo only. Not to be used in production.
+  @available(iOS 14.0, *)
+  func showContextMenuOnTap(for interactable: ControlInteractable) {
+    interactable.showsMenuAsPrimaryAction = true
+    interactable.menu = UIMenu(
+      title: NSLocalizedString(title, comment: ""),
+      children: interactions.map { $0.toUIAction })
+  }
+  
+    /// Shows sheet on tap for iOS 12 & 13, context menu on long press or 3D touch on iOS 13, and
+    /// context menu on tap for iOS 14 and higher. `To be used in production.`
+  func showContextMenuOrSheet(for interactable: ControlInteractable, in vc: UIViewController) {
     if #available(iOS 14.0, *) {
-      interactable.showsMenuAsPrimaryAction = true
-      interactable.menu = UIMenu(
-        title: NSLocalizedString(title, comment: ""),
-        children: interactions.map { $0.toUIAction })
-    } else if #available(iOS 13.0, *) {
-      let interaction = UIContextMenuInteraction(delegate: self)
-      interactable.addInteraction(interaction)
-    } else {
-      self.containerVC = vc
-      interactable.addTarget(self, action: #selector(showActionSheet))
+      showContextMenuOnTap(for: interactable)
+      return
     }
+    else if #available(iOS 13.0, *) {
+      showContextMenuOnLongPressOr3DTouch(for: interactable)
+    }
+    
+    showSheetOnTap(for: interactable, in: vc)
   }
   
   @objc private func showActionSheet() {
     guard let containerVC = containerVC else {
       return
     }
-
+    
     let alert = UIAlertController(
       title: NSLocalizedString(title, comment: ""),
       message: "", preferredStyle: .actionSheet)
@@ -89,7 +95,7 @@ class DefaultInteractionHandler: NSObject, InteractionHandler {
     
     containerVC.present(alert, animated: true, completion: nil)
   }
-
+  
 }
 
 @available(iOS 13.0, *)
@@ -106,32 +112,42 @@ extension DefaultInteractionHandler: UIContextMenuInteractionDelegate {
       }
       
     }
-
+  
 }
 
-// MARK: UIButton Extension to be added in production
+  // MARK: UIButton Extension to be added in production
 extension UIButton {
   
-  func addInteractionHandlerWithSheetAsFallback(_ handler: InteractionHandler, parentViewController: UIViewController) {
-    if #available(iOS 13.0, *) {
-      handler.addTouchInteractions(to: self)
-    } else {
-      handler.addTouchInteractions(to: self, in: parentViewController)
-    }
+    /// Shows context menu no tap
+    /// Demo only. Not to be used in production.
+  @available(iOS 14.0, *)
+  func addInteractionHandlerForiOS14AndHigher(_ handler: InteractionHandler) {
+    handler.showContextMenuOnTap(for: self)
   }
   
+    /// Shows sheet on tap, context menu on long press or 3D touch.
+    /// Demo only. Not to be used in production.
   @available(iOS 13.0, *)
-  func addInteractionHandlerWithiOS13(_ handler: InteractionHandler) {
-    handler.addTouchInteractions(to: self)
+  func addInteractionHandlerForiOS13(_ handler: InteractionHandler, parentViewController: UIViewController) {
+    handler.showContextMenuOnLongPressOr3DTouch(for: self)
+    handler.showSheetOnTap(for: self, in: parentViewController)
   }
   
-  func addInteractionHandlerWithiOS12(_ handler: InteractionHandler, parentViewController: UIViewController) {
-    handler.addTouchInteractions(to: self, in: parentViewController)
+    /// Shows sheet on tap.
+    /// Demo only. Not to be used in production.
+  func addInteractionForiOS12(_ handler: InteractionHandler, parentViewController: UIViewController) {
+    handler.showSheetOnTap(for: self, in: parentViewController)
+  }
+  
+    /// Shows sheet on tap for iOS 12 & 13, context menu on long press or 3D touch on iOS 13, and
+    /// context menu on tap for iOS 14 and higher. `To be used in production.`
+  func oneForAllInteraction(_ handler: InteractionHandler, parentViewController: UIViewController) {
+    handler.showContextMenuOrSheet(for: self, in: parentViewController)
   }
   
 }
 
-// MARK: UIImage Extension to be added in production
+  // MARK: UIImage Extension to be added in production
 extension UIImage {
   
   @available(iOS 13.0, *)
@@ -139,8 +155,8 @@ extension UIImage {
     named name: String,
     rendered renderingMode: UIImage.RenderingMode = .automatic) -> UIImage? {
       
-    let image = UIImage(named: name) ?? UIImage(systemName: name)
-    return image?.withRenderingMode(renderingMode)
-  }
-
+      let image = UIImage(named: name) ?? UIImage(systemName: name)
+      return image?.withRenderingMode(renderingMode)
+    }
+  
 }

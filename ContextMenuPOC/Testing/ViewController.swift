@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  @IBOutlet var someOtherButton: UIButton!
-  @IBOutlet var someButton: UIButton!
+  @IBOutlet var osAgnosticButton: UIButton!
+  @IBOutlet var iOS12Button: UIButton!
+  @IBOutlet var iOS13Button: UIButton!
   
   let inspect = Interaction(title: "Inspect", imageName: "arrow.up.square") {
     print("Will inspect")
@@ -36,13 +37,15 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    iOS12Button.addInteractionForiOS12(interactionHandler, parentViewController: self)
+    
     if #available(iOS 13.0, *) {
-      someButton.addInteractionHandlerWithiOS13(interactionHandler)
+      iOS13Button.addInteractionHandlerForiOS13(interactionHandler, parentViewController: self)
     } else {
-      someButton.addInteractionHandlerWithSheetAsFallback(interactionHandler, parentViewController: self)
+      iOS13Button.addInteractionForiOS12(interactionHandler, parentViewController: self)
     }
     
-    someOtherButton.addInteractionHandlerWithiOS12(interactionHandler, parentViewController: self)
+    osAgnosticButton.oneForAllInteraction(interactionHandler, parentViewController: self)
   }
 
 }
